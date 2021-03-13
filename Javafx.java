@@ -23,7 +23,13 @@ public class Javafxapp extends Application {
          Button buttonAdd=new Button ("ajouter");
          hBox1.getChildren().addAll(labelNom,textFieldNom,buttonAdd);
 
-         
+         VBox vBox1=new VBox();
+         ListView<String>listView1=new ListView<>();
+         listView1.getItems().addALL("effet","flou");
+         vBox1.getChildren().add(listView1);
+         borderPaneRoot.setCenter(vBox1);
+
+
          borderPaneRoot.setTop(hBox1);
          primaryStage.show();
      }
