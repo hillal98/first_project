@@ -13,6 +13,18 @@ public class Javafxapp extends Application {
          BorderPane borderPaneRoot =new BorderPane();
          Scene scene=new scene (borderPaneRopt,800,600);
          primaryStage.setScene(scene);
+
+         HBox hBox1=new HBox();
+         hBox1.setPandding(new Insets(10));
+         hBox1.setSpacing(10);
+         Label labelNom=new Label("editeur d'image:");
+         labelNom.setPandding(new Insets(5));
+         TextField textFieldNom=new TextField();
+         Button buttonAdd=new Button ("ajouter");
+         hBox1.getChildren().addAll(labelNom,textFieldNom,buttonAdd);
+
+         
+         borderPaneRoot.setTop(hBox1);
          primaryStage.show();
      }
  }        
