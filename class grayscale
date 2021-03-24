@@ -50,3 +50,35 @@ public static WritableImage negatif(Image image){
                 writer.setColor(x, y, color2);            
               }
          }
+         @Override 
+   public void start(Stage stage) {
+
+
+      Label contrastLabel = new Label("Contrast:");
+      Label hueLabel = new Label("Hue:");
+      Label saturationLabel = new Label("Saturation:");
+      Label brightnessLabel = new Label("luminosite:");
+      Label wi = new Label("redimenssionner avec ratio:");
+      Label rd = new Label("redimenssionner sans ratio:");
+      Label svlabel = new Label("nom image a sauvegarder: " );
+      Label flabel = new Label("intensite du flou: ");
+ 
+      Slider contrastSlider = this.createSlider(ADJUST_TYPE_CONTRAST);
+      Slider hueSlider = this.createSlider(ADJUST_TYPE_HUE);
+      Slider saturationSlider = this.createSlider(ADJUST_TYPE_SATURATION);
+      Slider brightnessSlider = this.createSlider(ADJUST_TYPE_BRIGHTNESS);
+
+
+      contrastSlider.setStyle("-fx-background-color:  CHOCOLATE;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+      hueSlider.setStyle("-fx-background-color:CYAN;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+      saturationSlider.setStyle("-fx-background-color:CORAL;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+      brightnessSlider.setStyle("-fx-background-color:   CORNFLOWERBLUE;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+
+      sv.setStyle("-fx-background-color:LIMEGREEN;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:BLACK;");
+      fl.setStyle("-fx-background-color:OLIVEDRAB;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:BLACK;");
+
+      wd.setStyle("-fx-background-color:  PALETURQUOISE;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:BLACK;");
+      wd2.setStyle("-fx-background-color: PALETURQUOISE;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:BLACK;");
+      hei.setStyle("-fx-background-color: PALETURQUOISE;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:BLACK;");
+
+
