@@ -192,3 +192,15 @@ GridPane gw = new GridPane () ;
          csave.setOnAction(event -> {
             sv.clear();
          });
+            Scanner clavier = new Scanner(System.in);
+         System.out.print("entrez le nom de votre image qui se trouve dans le repertoire courant: "); 
+         s=clavier.nextLine();
+         
+
+         Image image = new Image(s); 
+         ImageView iv1 = new ImageView();
+         
+         iv1.setImage(image);
+         
+         colorAdjust = new ColorAdjust();
+
