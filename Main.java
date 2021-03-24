@@ -348,3 +348,32 @@ iv1.setEffect(colorAdjust);
       slider.setMax(1);
       slider.setBlockIncrement(0.1);
       slider.setValue(0);
+            
+      slider.valueProperty().addListener(new ChangeListener<Number>() {
+ 
+         @Override
+         public void changed(ObservableValue<? extends Number> observable, //
+               Number oldValue, Number newValue) {
+            switch (adjustType) {
+            case ADJUST_TYPE_HUE:
+               colorAdjust.setHue(newValue.doubleValue());
+               break;
+            case ADJUST_TYPE_CONTRAST:
+               colorAdjust.setContrast(newValue.doubleValue());
+               break;
+            case ADJUST_TYPE_SATURATION:
+               colorAdjust.setSaturation(newValue.doubleValue());
+               break;
+            case ADJUST_TYPE_BRIGHTNESS:
+               colorAdjust.setBrightness(newValue.doubleValue());
+               break;
+            }
+         }
+      });
+      return slider;
+   }
+
+     public static void main(String[] args) {
+         Application.launch(args);
+     }
+ }
