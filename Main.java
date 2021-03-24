@@ -203,4 +203,148 @@ GridPane gw = new GridPane () ;
          iv1.setImage(image);
          
          colorAdjust = new ColorAdjust();
+iv1.setEffect(colorAdjust);
+        
+         ori.setOnAction(event -> {
+            contrastSlider.setValue(0);
+            hueSlider.setValue(0);
+            brightnessSlider.setValue(0);
+            saturationSlider.setValue(0);
+            BoxBlur boxBlur = new BoxBlur();
+            boxBlur.setWidth(0);
+            boxBlur.setHeight(0);
+            boxBlur.setIterations(0);
+            iv1.setEffect(boxBlur);
+            iv1.setRotate(0);
+            iv1.setFitWidth(image.getWidth());
+            iv1.setFitHeight(image.getHeight());
+            iv1.setPreserveRatio(false);
+            iv1.setSmooth(true);
+            iv1.setCache(true);
+            iv1.setImage(image);
+            iv1.setEffect(colorAdjust);
+         });
+         neg.setOnAction(event -> {
+            iv1.setImage(negatif(image));
+         });
 
+         grr.setOnAction(event -> {
+            iv1.setImage(grayscale(image));
+         }); 
+
+         wid.setOnAction(event -> {
+              iv1.setFitWidth(Integer.valueOf(wd.getText()));
+              iv1.setPreserveRatio(true);
+              iv1.setSmooth(true);
+              iv1.setCache(true);
+         }); 
+
+         redim.setOnAction(event -> {
+              iv1.setFitWidth(Integer.valueOf(wd2.getText()));
+              iv1.setFitHeight(Integer.valueOf(hei.getText()));
+              iv1.setPreserveRatio(false);
+              iv1.setSmooth(true);
+              iv1.setCache(true);
+         });
+         dark.setOnAction(event -> {
+            BoxBlur boxBlur = new BoxBlur();
+ 
+             boxBlur.setWidth(Integer.valueOf(fl.getText()));
+             boxBlur.setHeight(Integer.valueOf(fl.getText()));
+             boxBlur.setIterations(3);
+             iv1.setEffect(boxBlur);
+         });
+         crot.getItems().addAll( "0" , "90" , "180" , "270") ;
+         rot.setOnAction(event -> {
+            if (crot.getValue() == "0") 
+                iv1.setRotate(0);
+            else if (crot.getValue() == "90") 
+                iv1.setRotate(90);
+            else if (crot.getValue() == "180") 
+                iv1.setRotate(180);
+            else if (crot.getValue() == "270")
+                iv1.setRotate(270);
+         });
+
+
+    
+    saveButton.setOnAction(new EventHandler<ActionEvent>() {
+      @Override public void handle(ActionEvent arg0) {
+        try {
+          
+          File output = new File(String.valueOf(sv.getText()) + ".png");
+          
+          ImageIO.write(SwingFXUtils.fromFXImage(iv1.snapshot(null, null), null), "png", output);
+
+
+        } catch (IOException ex) {
+          System.out.println("save faileds " + ex);
+        }
+      }
+    });
+
+
+
+         Group root = new Group();
+         Scene scene = new Scene(root);
+         scene.setFill(Color.GRAY);
+         HBox box = new HBox();
+         VBox bo = new VBox();
+         bo.setStyle("-fx-background-color:DARKGREY ;"+"-fx-padding: 10;" + "-fx-border-style: solid inside;"
+        + "-fx-border-width: 2;" + "-fx-border-insets: 5;"
+        + "-fx-border-radius: 5;" + "-fx-border-color: KHAKI;");
+         bo.setSpacing(5);
+
+         ori.setStyle("-fx-background-color:GOLDENROD;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         neg.setStyle("-fx-background-color: #000000, linear-gradient(#7ebcea, #2f4b8f),linear-gradient(#426ab7, #263e75),linear-gradient(#395cab, #223768);"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill: white;");
+         grr.setStyle("-fx-background-color: #090a0c,linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),linear-gradient(#20262b, #191d22),radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill: white;");
+         saveButton.setStyle("-fx-background-color:OLIVEDRAB;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         dark.setStyle("-fx-background-color:LIMEGREEN;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         rot.setStyle("-fx-background-color:LIMEGREEN;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         crot.setStyle("-fx-background-color:GREENYELLOW;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         redim.setStyle("-fx-background-color:NAVY;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         wid.setStyle("-fx-background-color:NAVY;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         cf.setStyle("-fx-background-color:LIMEGREEN;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         car.setStyle("-fx-background-color:NAVY;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         csr.setStyle("-fx-background-color:NAVY;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         csave.setStyle("-fx-background-color:OLIVEDRAB;"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill:WHITE;");
+         close.setStyle("-fx-background-color: linear-gradient(#ff5400, #be1d00);"+"-fx-background-radius: 30;"+"-fx-background-insets: 0;"+"-fx-text-fill: white;");
+
+         bo.getChildren().add(ori);
+         bo.getChildren().add(grr);
+         bo.getChildren().add(neg);
+         bo.getChildren().add(gw);
+         bo.getChildren().add(rdm);
+         bo.getChildren().add(grid);
+         
+         bo.getChildren().add(grid3);
+         bo.getChildren().add(grid4);
+
+         bo.getChildren().addAll(contrastLabel, contrastSlider, //
+            hueLabel, hueSlider, //
+            saturationLabel, saturationSlider, //
+            brightnessLabel, brightnessSlider);
+            
+
+         bo.getChildren().add(grid2);
+         
+         bo.getChildren().add(close);
+         box.getChildren().add(bo);
+         box.getChildren().add(iv1);
+
+
+         root.getChildren().add(box);
+ 
+         stage.setTitle("ImageView");
+         stage.setWidth(600);
+         stage.setHeight(500);
+         stage.setScene(scene); 
+         stage.sizeToScene(); 
+         stage.show(); 
+     }
+   private Slider createSlider(final int adjustType) {
+      Slider slider = new Slider();
+      slider.setMin(-1);
+      slider.setMax(1);
+      slider.setBlockIncrement(0.1);
+      slider.setValue(0);
