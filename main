@@ -175,4 +175,20 @@ GridPane gw = new GridPane () ;
       grid4.add(saturationSlider,0,5 ) ;
       grid4.add( brightnessLabel,0,6 ) ;
       grid4.add(brightnessSlider,0,7 ) ;
-
+ 
+         close.setOnAction(event -> {
+         Platform.exit();
+         });
+         car.setOnAction(event -> {
+            wd.clear();
+         });
+         csr.setOnAction(event -> {
+            wd2.clear();
+            hei.clear();
+         });
+         cf.setOnAction(event -> {
+            fl.clear();
+         });
+         csave.setOnAction(event -> {
+            sv.clear();
+         });
