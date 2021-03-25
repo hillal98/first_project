@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
  
-public class ColorAdjustEffectExample extends Application {
+public class Javafx extends Application {
  
    private static final int ADJUST_TYPE_HUE = 1;
    private static final int ADJUST_TYPE_CONTRAST = 2;
